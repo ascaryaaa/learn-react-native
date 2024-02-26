@@ -1,6 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import React, { useState } from 'react';
 import type {PropsWithChildren} from 'react';
 

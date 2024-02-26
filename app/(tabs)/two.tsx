@@ -10,8 +10,8 @@ export default class TabTwoScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.scrollView}>
+      <SafeAreaView>
+        <ScrollView>
           <View style={styles.container}>
             <Text style={styles.title}>Tab Two</Text>
             <Image source={{uri: 'https://reactjs.org/logo-og.png'}}

@@ -8,6 +8,8 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>
       <Image source={require('../../assets/images/favicon.png')} />
+      <Image source={{uri: 'https://reactjs.org/logo-og.png'}}
+       style={{width: 400, height: 400}} />
     </View>
   );
 }

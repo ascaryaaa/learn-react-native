@@ -1,15 +1,33 @@
 import React, { useState } from 'react';
-import { StyleSheet, Image, Button, Alert, ScrollView, Pressable } from 'react-native';
+import { StyleSheet, Image, Button, Alert, ScrollView, Pressable, TextInput } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const CounterApp = (props: { initialValue: number; }) => {
+const TextInputNumber = () => {
+  const [text, onChangeText] = React.useState('Useless Text');
+  const [number, onChangeNumber] = React.useState('');
+
+  return (
+    <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="Initail Number"
+        keyboardType="numeric"
+      />
+    </SafeAreaView>
+  );
+};
+
+const CounterApp = (props: { initialValue: number;}) => {
   const [count, setCount] = useState(props.initialValue);
   const increment = () => {
     setCount(count + 1);
   }
   return (
     <View>
+        <TextInputNumber/>
         <Pressable style={styles.pressable} onPress={increment}>
           <Text style={styles.pressableText}>Increment using Pressable</Text>
         </Pressable>
@@ -23,8 +41,6 @@ export default function TabTwoScreen() {
   const _onPressButton = () => {
     Alert.alert('You tapped the button!');
   };
-
-
 
   return (
     <SafeAreaView>
@@ -84,5 +100,13 @@ const styles = StyleSheet.create({
   },
   pressableText: {
     textAlign: "center",
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    color: "white",
+    backgroundColor: "#ffffff"
   }
 });

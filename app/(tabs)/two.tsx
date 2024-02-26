@@ -1,41 +1,44 @@
-import { StyleSheet, Image, Button,Alert, ScrollView } from 'react-native';
-import { Text, View} from '@/components/Themed';
-import React, {Component} from 'react';
+import React, { useState } from 'react';
+import { StyleSheet, Image, Button, Alert, ScrollView } from 'react-native';
+import { Text, View } from '@/components/Themed';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default class TabTwoScreen extends Component {
-  _onPressButton() {
-    Alert.alert('You tapped the button!');
-  }
+export default function TabTwoScreen() {
+  const [count, setCount] = useState(0);
 
-  render() {
-    return (
-      <SafeAreaView>
-        <ScrollView>
-          <View style={styles.container}>
-            <Text style={styles.title}>Tab Two</Text>
-            <Image source={{uri: 'https://reactjs.org/logo-og.png'}}
-              style={{width: 400, height: 400}} />
-            <Image source={require('../../assets/images/favicon.png')} />
-            <View style={styles.buttonContainer}>
-              <Button onPress={this._onPressButton} title="Press Me" />
-            </View>
-            <View style={styles.buttonContainer}>
-              <Button
-                onPress={this._onPressButton}
-                title="Press Me"
-                color="#841584"
-              />
-            </View>
-            <View style={styles.alternativeLayoutButtonContainer}>
-              <Button onPress={this._onPressButton} title="This looks great!" />
-              <Button onPress={this._onPressButton} title="OK!" color="#841584" />
-            </View>
+  const _onPressButton = () => {
+    Alert.alert('You tapped the button!');
+  };
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.title}>Tab Two</Text>
+          <Image source={{ uri: 'https://reactjs.org/logo-og.png' }} style={{ width: 400, height: 400 }} />
+          <Image source={require('../../assets/images/favicon.png')} />
+          <View style={styles.buttonContainer}>
+            <Button onPress={_onPressButton} title="Press Me" />
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
+
+          <Button title='=increment' onPress={increment} />
+          <Text>counter : {count}</Text>
+
+          <View style={styles.buttonContainer}>
+            <Button onPress={_onPressButton} title="Press Me" color="#841584" />
+          </View>
+          <View style={styles.alternativeLayoutButtonContainer}>
+            <Button onPress={_onPressButton} title="This looks great!" />
+            <Button onPress={_onPressButton} title="OK!" color="#841584" />
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({

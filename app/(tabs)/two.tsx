@@ -3,15 +3,15 @@ import { StyleSheet, Image, Button, Alert, ScrollView, Pressable } from 'react-n
 import { Text, View } from '@/components/Themed';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const CounterApp = () => {
-  const [count, setCount] = useState(0);
+const CounterApp = (props: { initialValue: number; }) => {
+  const [count, setCount] = useState(props.initialValue);
   const increment = () => {
     setCount(count + 1);
   }
   return (
     <View>
-        <Pressable onPress={increment}>
-          <Text>Increment using Pressable</Text>
+        <Pressable style={styles.pressable} onPress={increment}>
+          <Text style={styles.pressableText}>Increment using Pressable</Text>
         </Pressable>
         <Button title='Increment using Button' onPress={increment} />
         <Text>counter : {count}</Text>
@@ -36,7 +36,7 @@ export default function TabTwoScreen() {
           <View style={styles.buttonContainer}>
             <Button onPress={_onPressButton} title="Press Me" />
           </View>
-          <CounterApp/>
+          <CounterApp initialValue={100}/>
           <View style={styles.buttonContainer}>
             <Button onPress={_onPressButton} title="Press Me" color="#841584" />
           </View>
@@ -77,4 +77,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink',
     marginHorizontal: 20,
   },
+  pressable: {
+    paddingVertical: 10,
+    borderBottomWidth: 10,
+    backgroundColor: "#841584",
+  },
+  pressableText: {
+    textAlign: "center",
+  }
 });

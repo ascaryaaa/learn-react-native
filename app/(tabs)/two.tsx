@@ -4,7 +4,6 @@ import { Text, View } from '@/components/Themed';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const TextInputNumber = () => {
-  const [text, onChangeText] = React.useState('Useless Text');
   const [number, onChangeNumber] = React.useState('');
 
   return (
@@ -13,7 +12,7 @@ const TextInputNumber = () => {
         style={styles.input}
         onChangeText={onChangeNumber}
         value={number}
-        placeholder="Initail Number"
+        placeholder="Initial Value"
         keyboardType="numeric"
       />
     </SafeAreaView>
@@ -106,7 +105,6 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    color: "white",
-    backgroundColor: "#ffffff"
+    backgroundColor: "white"
   }
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Image, Button, Alert, ScrollView } from 'react-native';
+import { StyleSheet, Image, Button, Alert, ScrollView, Pressable } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -10,7 +10,10 @@ const CounterApp = () => {
   }
   return (
     <View>
-        <Button title='=increment' onPress={increment} />
+        <Pressable onPress={increment}>
+          <Text>Increment using Pressable</Text>
+        </Pressable>
+        <Button title='Increment using Button' onPress={increment} />
         <Text>counter : {count}</Text>
     </View>
   )
